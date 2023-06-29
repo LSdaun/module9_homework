@@ -4,35 +4,5 @@
     <title>Приложение</title>
 </head>
 <body>
-<input type="number" id="numberInput">
-<button onclick="handleRequest()">Отправить запрос</button>
-
-<div id="result"></div>
-
-<script>
-    function handleRequest() {
-        const number = document.getElementById('numberInput').value;
-
-        if (number < 1 || number > 10) {
-            document.getElementById('result').innerHTML = 'Число вне диапазона от 1 до 10';
-        } else {
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', http://jsonplaceholder.typicode.com/photos?_limit=${number});
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    const response = JSON.parse(xhr.responseText);
-                    let imagesHtml = '';
-                    response.forEach(image => {
-                        imagesHtml += <img src="${image.thumbnailUrl}" alt="${image.title}">;
-                            });
-                            document.getElementById('result').innerHTML = imagesHtml;
-                            } else {
-                                document.getElementById('result').innerHTML = 'Ошибка запроса';
-                            }
-                            };
-                            xhr.send();
-                            }
-                            }
-</script>
 </body>
 </html>
